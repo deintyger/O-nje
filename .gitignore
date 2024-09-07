@@ -1,0 +1,10 @@
+# Environment files
+/server/.env
+/frontend/.env
+
+# Logs
+*.log
+
+# OS-specific files
+.DS_Store
+Thumbs.db
