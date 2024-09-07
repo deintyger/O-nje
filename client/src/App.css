@@ -1,12 +1,12 @@
 /* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Alata&family=Bad+Script&family=Lily+Script+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Alata&family=Bad+Script&family=Lily+Script+One&display=swap");
 
 /* General reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Alata", sans-serif;
 }
 
 html,
@@ -40,7 +40,6 @@ body,
   display: flex;
   align-items: center;
   background-color: #ffe8e5;
- 
 }
 
 .menu .ant-menu-item {
@@ -48,8 +47,8 @@ body,
   width: fit-content;
 }
 
-.menuItem{
-  font-family: 'Lily Script One', cursive !important;
+.menuItem {
+  font-family: "Lily Script One", cursive !important;
   font-size: 20px;
 }
 
@@ -68,12 +67,26 @@ body,
   height: 52px;
 }
 
+/* Search bar */
 .searchBar {
-  width: 60%; 
+  width: 80%;
   padding: 10px;
   border-radius: 15px;
   border: 1px solid #ddd;
   height: 50px;
+  text-align: center;
+  color: #522f15;
+  font-size: 18px;
+  transition: border-color 0.3s ease;
+}
+
+.searchBar::placeholder {
+  color: #ecd6cc;
+  font-family: "Alata", sans-serif;
+}
+
+.searchBar:hover {
+  border-color: #522f15 !important;
 }
 
 .searchBtn {
@@ -83,9 +96,13 @@ body,
   height: 50px;
   background-color: #522f15;
   color: #fff;
+  font-size: 18px;
 }
 
-
+.searchBtn:hover {
+  background-color: #522f1586 !important;
+  border: none;
+}
 
 /* Content */
 .content {
@@ -110,13 +127,13 @@ body,
   margin-top: 150px;
   width: 50%;
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
 }
 
 .listItem {
-  width: 100%; 
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -124,16 +141,20 @@ body,
   margin-top: 20px;
 }
 
+.listContainer{
+  margin-top: 40px;
+}
+
 .titleText {
   font-size: 44px;
   font-weight: bold;
   color: #b66139;
-  font-family: 'Bad Script', cursive;
+  font-family: "Bad Script", cursive;
 }
 
-.ounje{
+.ounje {
   color: #522f15;
-  font-family: 'Lily Script One', cursive;
+  font-family: "Lily Script One", cursive;
 }
 
 .recipeName {
@@ -141,7 +162,10 @@ body,
   text-align: left;
 }
 
-.ratingBtn,
+.ratingBtn{
+  margin-left: 10px;
+  background-color: #b3d7b0;
+}
 .useBtn {
   margin-left: 10px;
 }

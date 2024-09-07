@@ -52,22 +52,21 @@ function App() {
               Search
             </Button>
           </div>
-
-          <List
-            bordered
-            dataSource={filteredRecipes}
-            renderItem={(recipe) => (
-              
+          <div className="listContainer">
+            <List
+              bordered
+              dataSource={filteredRecipes}
+              renderItem={(recipe) => (
                 <List.Item className="listItem">
                   <span className="recipeName">{recipe.name}</span>
-                  <Button className="ratingBtn">{recipe.rating}</Button>
+                  <Button className="ratingBtn">{recipe.rating} ⭐️⭐️⭐️⭐️⭐️</Button>
                   <Button className="useBtn">
                     <Link to={`/recipes/${recipe._id}`}>View Recipe 😋</Link>
                   </Button>
                 </List.Item>
-           
-            )}
-          />
+              )}
+            />
+          </div>
         </div>
       </div>
       <div className="footer">
