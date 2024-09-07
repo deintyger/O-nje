@@ -1,42 +1,120 @@
+/* General reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+html,
+body,
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: #ffdbd0;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffe8e5;
+  padding: 10px 20px;
+  height: 90px;
+  position: absolute;
+  border-radius: 20px;
+  width: 85%;
+  transform: translateX(-50%);
+  left: 50%;
+  z-index: 1000;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  background-color: #ffe8e5;
+}
+
+.menu .ant-menu-item {
+  color: #522f15;
+  width: fit-content;
 }
 
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  height: 85px;
+  width: 85px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Content */
+.content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #ffdbd0;
+}
+
+.site-layout-content {
+  flex: 1;
+  padding: 24px;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recipe-content {
+  background: #ffe8e5;
+  border-radius: 15px;
+  margin-top: 30px;
+}
+
+.titleText {
+  font-size: 24px;
+  font-weight: bold;
+  color: #522f15;
+}
+
+.recipeName {
+  flex: 1;
+}
+
+.ratingBtn,
+.useBtn {
+  margin-left: 10px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: #ffdbd0;
+  color: #522f15;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .header {
+    padding: 0 10px;
+    height: 50px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .logo {
+    margin-right: 10px;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .site-layout-content {
+    padding: 16px;
+    margin-top: 50px;
+    min-height: calc(100vh - 50px);
   }
-}
 
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .footer {
+    padding: 15px;
+  }
 }
