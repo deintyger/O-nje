@@ -55,14 +55,22 @@ function App() {
           <div className="listContainer">
             <List
               bordered
+              style={{border:"none"}}
               dataSource={filteredRecipes}
               renderItem={(recipe) => (
                 <List.Item className="listItem">
-                  <span className="recipeName">{recipe.name}</span>
-                  <Button className="ratingBtn">{recipe.rating} ⭐️⭐️⭐️⭐️⭐️</Button>
-                  <Button className="useBtn">
-                    <Link to={`/recipes/${recipe._id}`}>View Recipe 😋</Link>
-                  </Button>
+                  <div className="recipeAbout">
+                    <span className="recipeName">{recipe.name}</span> -{" "}
+                    <span>Created {recipe.date} September 7th, 2024</span>
+                  </div>
+                  <div className="recipeDetails">
+                    <Button className="ratingBtn">
+                      {recipe.rating} ⭐️⭐️⭐️⭐️⭐️
+                    </Button>
+                    <Button className="useBtn">
+                      <Link to={`/recipes/${recipe._id}`}>View Recipe 😋</Link>
+                    </Button>
+                  </div>
                 </List.Item>
               )}
             />
