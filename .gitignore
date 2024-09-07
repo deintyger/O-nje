@@ -1,6 +1,6 @@
 # Environment files
 /server/.env
-/frontend/.env
+/client/.env
 
 # Logs
 *.log
