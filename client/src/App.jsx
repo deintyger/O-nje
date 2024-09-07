@@ -12,12 +12,11 @@ function App() {
   const [filteredRecipes, setFilteredRecipes] = useState([]);
 
   useEffect(() => {
-    // Fetch all recipes initially
     axios
       .get("/api/recipes")
       .then((response) => {
         setRecipes(response.data);
-        setFilteredRecipes(response.data); // Initialize filtered list
+        setFilteredRecipes(response.data);
       })
       .catch((error) => console.error("Error fetching recipes:", error));
   }, []);
@@ -30,9 +29,17 @@ function App() {
       );
       setFilteredRecipes(filtered);
     } else {
-      setFilteredRecipes(recipes); // Show all if the search query is cleared or less than 3 characters
+      setFilteredRecipes(recipes);
     }
   }, 300);
+
+  // Format date
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return date.toLocaleDateString(undefined, options).replace(",", "");
+  };
+
   return (
     <div className="content">
       <Navbar />
@@ -55,13 +62,13 @@ function App() {
           <div className="listContainer">
             <List
               bordered
-              style={{border:"none"}}
+              style={{ border: "none" }}
               dataSource={filteredRecipes}
               renderItem={(recipe) => (
                 <List.Item className="listItem">
                   <div className="recipeAbout">
                     <span className="recipeName">{recipe.name}</span> -{" "}
-                    <span>Created {recipe.date} September 7th, 2024</span>
+                    <span>Created {formatDate(recipe.createdAt)}</span>
                   </div>
                   <div className="recipeDetails">
                     <Button className="ratingBtn">
