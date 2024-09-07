@@ -15,6 +15,7 @@ function App() {
     axios
       .get("/api/recipes")
       .then((response) => {
+        console.log(response);
         setRecipes(response.data);
         setFilteredRecipes(response.data);
       })
@@ -38,6 +39,13 @@ function App() {
     const date = new Date(dateString);
     const options = { year: "numeric", month: "long", day: "numeric" };
     return date.toLocaleDateString(undefined, options).replace(",", "");
+  };
+
+  // Average ratings:
+  const findAverage = (ratings) => {
+    if (ratings.length === 0) return 0;
+    const total = ratings.reduce((acc, rating) => acc + rating, 0);
+    return total / ratings.length;
   };
 
   return (
@@ -68,11 +76,12 @@ function App() {
                 <List.Item className="listItem">
                   <div className="recipeAbout">
                     <span className="recipeName">{recipe.name}</span> -{" "}
-                    <span>Created {formatDate(recipe.createdAt)}</span>
+                    <span>Created {formatDate(recipe.createdAt)}</span> -{" "}
+                    <span>Rated by {recipe.ratings.length} people</span>
                   </div>
                   <div className="recipeDetails">
                     <Button className="ratingBtn">
-                      {recipe.rating} ⭐️⭐️⭐️⭐️⭐️
+                      {findAverage(recipe.ratings).toFixed(1)} ⭐️
                     </Button>
                     <Button className="useBtn">
                       <Link to={`/recipes/${recipe._id}`}>View Recipe 😋</Link>
