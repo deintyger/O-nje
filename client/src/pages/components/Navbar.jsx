@@ -8,11 +8,11 @@ const Navbar = () => {
         <Image src="/barlogo.png" alt="Logo" preview={false} />
       </div>
       <Menu className="menu">
-        <Menu.Item className="menuItem" key="1">
-          <Link to="/add-recipe">Add Recipe</Link>
+        <Menu.Item key="1">
+          <Link className="menuItem" to="/add-recipe">Add Recipe</Link>
         </Menu.Item>
         <Menu.Item className="menuItem" key="2">
-          <Link to="/contact-us">Contact Us</Link>
+          <Link className="menuItem" to="/contact-us">Contact Us</Link>
         </Menu.Item>
       </Menu>
     </div>
