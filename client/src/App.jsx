@@ -98,9 +98,9 @@ function App() {
                 <List.Item className="listItem">
                   <div className="recipeAbout">
                     <span className="recipeName">{recipe.name}</span> -{" "}
-                    <span>Created {formatDate(recipe.createdAt)}</span> -{" "}
+                    <span className="recipeName">Created {formatDate(recipe.createdAt)}</span> -{" "}
                     <span>
-                      <span>
+                      <span className="recipeName">
                         Rated by{" "}
                         {recipe.ratings.length === 0
                           ? ""

@@ -454,9 +454,12 @@ button {
     width: 90%;
     padding: 10px;
   }
+  .recipeName,  .recipeName2, .ratingBtn, .useBtn {
+    font-size: 14px !important;
+  }
 
-  .recipeName2 {
-    font-size: 30px;
+  .listItem{
+    width: fit-content;
   }
 
   .recipeMap {
@@ -477,10 +480,11 @@ button {
   .aiBtn {
     width: 50px;
     max-width: none;
+    font-size: 14px !important;
   }
 
   .comingSoon {
-    font-size: 14px;
+    font-size: 12px;
     position: relative;
     top: 0;
   }
