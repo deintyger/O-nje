@@ -56,7 +56,7 @@ body,
   height: 85px;
   width: 85px;
 }
-.logo:hover{
+.logo:hover {
   cursor: pointer;
 }
 
@@ -92,10 +92,14 @@ body,
   border-color: #522f15 !important;
 }
 
+.buttons {
+  display: flex;
+  gap: 50px; 
+}
+
 .searchBtn {
   padding: 10px 40px;
   border-radius: 15px;
-  flex-shrink: 0;
   height: 50px;
   background-color: #522f15;
   color: #fff;
@@ -106,6 +110,44 @@ body,
   background-color: #522f1586 !important;
   border: none;
 }
+
+.aiButtonSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  position: relative;
+}
+
+.aiBtn {
+  padding: 10px 40px;
+  border-radius: 15px;
+  height: 50px;
+  background-color: #ffdbd0 ;
+  color:#522f15 ;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aiBtn:hover {
+  background-color: #ffdbd04d!important;
+  border: none;
+}
+
+
+.comingSoon {
+  color: #fff;
+  margin-bottom: 5px; 
+  background-color:  #ff5733;
+  border-radius: 9px;
+  padding: 3px;
+  top: -20px;
+  position: absolute;
+  right: 20px;
+  font-size: small;
+}
+
+
 
 /* Content */
 .content {
@@ -195,16 +237,16 @@ body,
 .addRecipe {
   background-color: #ffe8e5;
   border-radius: 15px;
-  width: 100%; 
+  width: 100%;
   max-width: 850px;
-  height: auto;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 30px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 0 auto; /* Center the container */
+  margin: 0 auto; 
 }
 
 /* For the header with the back button and title */
@@ -212,9 +254,13 @@ body,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%; 
+  width: 100%;
   position: relative;
-  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.recipeForm{
+  margin-top: 70px;
 }
 
 .backBtn {
@@ -242,7 +288,7 @@ body,
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%; 
+  width: 100%;
   text-align: center;
   margin-top: 25px;
 }
@@ -250,7 +296,7 @@ body,
 .recipeMap {
   text-align: left;
   width: 100%;
-  padding: 0 20px; 
+  padding: 0 20px;
 }
 
 .sharenRateRecipe {
@@ -298,7 +344,6 @@ body,
   margin-top: 30px;
 }
 
-
 form {
   width: 100%;
   max-width: 600px;
@@ -341,7 +386,6 @@ button {
   cursor: pointer;
 }
 
-
 .sharenRateRecipe {
   display: flex;
   justify-content: space-between;
@@ -356,7 +400,6 @@ button {
   margin-right: 50px;
   width: fit-content;
 }
-
 
 /*Footer*/
 .footer {

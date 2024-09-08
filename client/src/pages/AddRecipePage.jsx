@@ -1,7 +1,13 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowLeft,
+  faWandMagicSparkles,
+} from "@fortawesome/free-solid-svg-icons";
 import Navbar from "./components/Navbar";
+import Footer from "./Footer";
 
 const AddRecipePage = () => {
   const [name, setName] = useState("");
@@ -31,8 +37,21 @@ const AddRecipePage = () => {
       <Navbar />
       <div className="site-layout-content">
         <div className="addRecipe">
-          <h1 className="addTitle">Add a New Recipe 📝</h1>
-          <form onSubmit={handleSubmit}>
+          <div className="recipeHeader">
+            <div className="backBtn">
+              <FontAwesomeIcon
+                icon={faArrowLeft}
+                size="lg"
+                style={{ color: "#522f15", cursor: "pointer" }}
+                onClick={() => navigate("/")}
+              />
+            </div>
+            <div className="recipeName2">
+              <h1 className="addTitle">Add a New Recipe 📝</h1>
+            </div>
+          </div>
+
+          <form className="recipeForm" onSubmit={handleSubmit}>
             <label>
               Recipe Name:
               <input
@@ -56,7 +75,7 @@ const AddRecipePage = () => {
             </label>
             <br />
             <label>
-            Cooking Instructions:
+              Cooking Instructions:
               <textarea
                 value={steps}
                 placeholder="Could you also help us with details in how to cook it? 🥹"
@@ -65,9 +84,27 @@ const AddRecipePage = () => {
               />
             </label>
             <br />
-            <button  className="searchBtn" type="submit">Add Recipe</button>
+            <div className="buttons">
+              <button className="searchBtn" type="submit">
+                Add Recipe
+              </button>
+              <div className="aiButtonSection">
+              <span className="comingSoon">Coming Soon</span>
+                <button className="aiBtn" type="button" disabled>
+                  <FontAwesomeIcon
+                    icon={faWandMagicSparkles}
+                    size="lg"
+                    style={{ color: "#522f15" }}
+                  />
+                  Generate Cooking Instructions
+                </button>
+              </div>
+            </div>
           </form>
         </div>
+      </div>
+      <div>
+        <Footer />
       </div>
     </div>
   );

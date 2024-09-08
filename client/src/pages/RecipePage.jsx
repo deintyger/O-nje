@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom"; // Import useNavigate
+import { useParams, useNavigate } from "react-router-dom"; 
+import Footer from "./Footer";
 import { Rate, message } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,7 +12,7 @@ import Navbar from "./components/Navbar";
 
 const RecipePage = () => {
   const { id } = useParams();
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate(); 
   const [recipe, setRecipe] = useState(null);
   const [userRating, setUserRating] = useState(0);
 
@@ -129,6 +130,9 @@ const RecipePage = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+      <Footer/>
       </div>
     </div>
   );

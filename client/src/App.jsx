@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { List, Button, Input } from "antd";
 import Navbar from "./pages/components/Navbar";
+import Footer from "./pages/Footer";
 import "antd/dist/reset.css";
 import { debounce } from "lodash";
 import "./App.css";
@@ -119,8 +120,8 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="footer">
-        Oúnje Recipe Platform ©2024 Created by Dein & Mide
+      <div>
+      <Footer/>
       </div>
     </div>
   );
