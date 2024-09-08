@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { Rate, message } from 'antd'; // Ant Design components for rate
+import { Rate, message } from 'antd';
+import Navbar from './components/Navbar';
 
 const RecipePage = () => {
   const { id } = useParams();
@@ -36,13 +37,18 @@ const RecipePage = () => {
   const averageRating = recipe.averageRating || 0;
 
   return (
-    <div>
-      <h1>{recipe.name}</h1>
+    <div className="content">
+    <Navbar />
+    <div className="site-layout-content">
+    <div className="addRecipe">
+ 
+      <h1 className="addTitle" > {recipe.name} 🍱</h1>
+      <div className='recipeInstructions'>
       <h3>Ingredients</h3>
-      <ul>
+      <ul className='recipeMap'>
         {recipe.ingredients.map((ingredient, index) => <li key={index}>{ingredient}</li>)}
       </ul>
-      <h3>Steps</h3>
+      <h3>Cooking Instructions</h3>
       <p>{recipe.steps}</p>
       <h3>Average Rating</h3>
       <p>{averageRating.toFixed(1)} ⭐️</p>
@@ -53,6 +59,9 @@ const RecipePage = () => {
         onChange={handleRate}
         style={{ fontSize: '24px' }}
       />
+      </div>
+      </div>
+    </div>
     </div>
   );
 };

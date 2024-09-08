@@ -193,7 +193,7 @@ body,
   background-color: #ffe8e5;
   border-radius: 15px;
   width: 40%;
-  height: 700px;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -202,11 +202,47 @@ body,
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Chrome, Edge, Safari */
+.addRecipe::-webkit-scrollbar {
+  width: 7px;
+}
+
+.addRecipe::-webkit-scrollbar-track {
+  background: #ffe8e59a;
+  border-radius: 15px;
+}
+
+.addRecipe::-webkit-scrollbar-thumb {
+  background-color: #522f1583;
+  border-radius: 10px;
+  border: 2px solid #ffe8e5;
+}
+
+/* Firefox */
+.addRecipe {
+  scrollbar-width: thin;
+  scrollbar-color: #522f1583 #ffe8e5;
+}
+
 .addTitle {
   font-size: 40px;
   color: #522f15;
   font-family: "Bad Script", cursive;
-  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.recipeInstructions{
+  color: #b66139;
+  font-family: "Alata", sans-serif;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 25px;
+}
+.recipeMap{
+  text-align: left;
 }
 
 form {

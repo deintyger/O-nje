@@ -56,7 +56,7 @@ const AddRecipePage = () => {
             </label>
             <br />
             <label>
-              Steps:
+            Cooking Instructions:
               <textarea
                 value={steps}
                 placeholder="Could you also help us with details in how to cook it? 🥹"

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { List, Button, Input } from "antd";
@@ -11,16 +11,22 @@ function App() {
   const [recipes, setRecipes] = useState([]);
   const [filteredRecipes, setFilteredRecipes] = useState([]);
 
+  const sortRecipesByRating = useCallback((recipes) => {
+    return [...recipes].sort((a, b) => findAverage(b.ratings) - findAverage(a.ratings));
+  }, []); 
+
   useEffect(() => {
     axios
       .get("/api/recipes")
       .then((response) => {
         console.log(response);
-        setRecipes(response.data);
-        setFilteredRecipes(response.data);
+        const sortedRecipes = sortRecipesByRating(response.data);
+        setRecipes(sortedRecipes);
+        setFilteredRecipes(sortedRecipes);
       })
       .catch((error) => console.error("Error fetching recipes:", error));
-  }, []);
+  }, [sortRecipesByRating]); 
+  
 
   // Handle search input, debounced to prevent excessive API calls
   const handleSearch = debounce((value) => {
@@ -28,12 +34,13 @@ function App() {
       const filtered = recipes.filter((recipe) =>
         recipe.name.toLowerCase().includes(value.toLowerCase())
       );
-      setFilteredRecipes(filtered);
+      setFilteredRecipes(sortRecipesByRating(filtered));
     } else {
-      setFilteredRecipes(recipes);
+      setFilteredRecipes(sortRecipesByRating(recipes));
     }
   }, 300);
 
+    
   // Format date
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -46,6 +53,17 @@ function App() {
     if (ratings.length === 0) return 0;
     const total = ratings.reduce((acc, rating) => acc + rating, 0);
     return total / ratings.length;
+  };
+
+  // English word adjustment for singular/plural handling
+  const englishWord = (recipe) => {
+    if (recipe.ratings.length === 1) {
+      return "Person";
+    } else if (recipe.ratings.length === 0) {
+      return "No one";
+    } else {
+      return "People";
+    }
   };
 
   return (
@@ -77,7 +95,15 @@ function App() {
                   <div className="recipeAbout">
                     <span className="recipeName">{recipe.name}</span> -{" "}
                     <span>Created {formatDate(recipe.createdAt)}</span> -{" "}
-                    <span>Rated by {recipe.ratings.length} people</span>
+                    <span>
+                      <span>
+                        Rated by{" "}
+                        {recipe.ratings.length === 0
+                          ? ""
+                          : recipe.ratings.length}{" "}
+                        {englishWord(recipe)}
+                      </span>
+                    </span>
                   </div>
                   <div className="recipeDetails">
                     <Button className="ratingBtn">
