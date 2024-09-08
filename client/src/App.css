@@ -195,7 +195,8 @@ body,
 .addRecipe {
   background-color: #ffe8e5;
   border-radius: 15px;
-  width: 40%;
+  width: 100%; 
+  max-width: 850px;
   height: auto;
   display: flex;
   flex-direction: column;
@@ -203,6 +204,69 @@ body,
   justify-content: center;
   padding: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center the container */
+}
+
+/* For the header with the back button and title */
+.recipeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; 
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.recipeName2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 40px;
+  color: #522f15;
+  font-family: "Bad Script", cursive;
+  white-space: nowrap;
+}
+
+/* Instructions and other details inside the container */
+.recipeInstructions {
+  color: #b66139;
+  font-family: "Alata", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; 
+  text-align: center;
+  margin-top: 25px;
+}
+
+.recipeMap {
+  text-align: left;
+  width: 100%;
+  padding: 0 20px; 
+}
+
+.sharenRateRecipe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.rateRecipe {
+  flex: 1;
+}
+
+.shareRecipe {
+  flex: 0;
 }
 
 /* Chrome, Edge, Safari */
@@ -221,36 +285,6 @@ body,
   border: 2px solid #ffe8e5;
 }
 
-/* Add styles for the parent container */
-.recipeHeader {
-  display: flex;
-  justify-content: space-between; 
-  align-items: center;
-  width: 100%; 
-  margin-bottom: 20px;
-  position: relative; 
-}
-
-.backBtn {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; 
-  cursor: pointer;
-  font-size: 24px;
-  flex: 0;
-}
-
-.recipeName2 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%); 
-  width: fit-content;
-  font-size: 40px;
-  color: #522f15;
-  font-family: "Bad Script", cursive;
-}
-
-
 /* Firefox */
 .addRecipe {
   scrollbar-width: thin;
@@ -264,19 +298,6 @@ body,
   margin-top: 30px;
 }
 
-.recipeInstructions{
-  color: #b66139;
-  font-family: "Alata", sans-serif;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  margin-top: 25px;
-}
-.recipeMap{
-  text-align: left;
-}
 
 form {
   width: 100%;
@@ -336,13 +357,6 @@ button {
   width: fit-content;
 }
 
-.shareRecipe {
-  flex: 0;
-  text-align: right;
-  margin-left: 50px;
-  width: fit-content;
-}
-
 
 /*Footer*/
 .footer {
@@ -370,6 +384,18 @@ button {
     padding: 16px;
     margin-top: 50px;
     min-height: calc(100vh - 50px);
+  }
+  .addRecipe {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .recipeName2 {
+    font-size: 30px;
+  }
+
+  .recipeMap {
+    padding: 0 10px;
   }
 
   .footer {
