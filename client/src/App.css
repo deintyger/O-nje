@@ -94,7 +94,7 @@ body,
 
 .buttons {
   display: flex;
-  gap: 50px; 
+  gap: 50px;
 }
 
 .searchBtn {
@@ -114,7 +114,7 @@ body,
 .aiButtonSection {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;
   position: relative;
 }
 
@@ -122,23 +122,22 @@ body,
   padding: 10px 40px;
   border-radius: 15px;
   height: 50px;
-  background-color: #ffdbd0 ;
-  color:#522f15 ;
+  background-color: #ffdbd0;
+  color: #522f15;
   font-size: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .aiBtn:hover {
-  background-color: #ffdbd04d!important;
+  background-color: #ffdbd04d !important;
   border: none;
 }
 
-
 .comingSoon {
   color: #fff;
-  margin-bottom: 5px; 
-  background-color:  #ff5733;
+  margin-bottom: 5px;
+  background-color: #ff5733;
   border-radius: 9px;
   padding: 3px;
   top: -20px;
@@ -146,8 +145,6 @@ body,
   right: 20px;
   font-size: small;
 }
-
-
 
 /* Content */
 .content {
@@ -246,7 +243,7 @@ body,
   justify-content: center;
   padding: 30px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 
 /* For the header with the back button and title */
@@ -259,7 +256,7 @@ body,
   margin-top: 30px;
 }
 
-.recipeForm{
+.recipeForm {
   margin-top: 70px;
 }
 
@@ -416,17 +413,42 @@ button {
 @media (max-width: 768px) {
   .header {
     padding: 0 10px;
-    height: 50px;
+    height: 65px;
+    width: 95%;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin-top: 20px;
   }
 
   .logo {
-    margin-right: 10px;
+    margin-right: 0;
+    height: fit-content;
+    width: fit-content;
+    max-width: 70px;
+  }
+
+  .menu {
+    flex-direction: row;
+    gap: 5px;
+  }
+  .menuItem{
+    font-size: 15px;
   }
 
   .site-layout-content {
-    padding: 16px;
-    margin-top: 50px;
+    padding: 20px;
+    margin-top: 60px;
     min-height: calc(100vh - 50px);
+    width: 100%;
+  }
+  .recipe-content {
+    width: 99% !important;
+    margin-top: 50px;
+  }
+
+  .titleText{
+    font-size: 20px;
   }
   .addRecipe {
     width: 90%;
@@ -439,6 +461,28 @@ button {
 
   .recipeMap {
     padding: 0 10px;
+  }
+
+  .searchBar {
+    width: 100%;
+    max-width: none;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .searchBtn,
+  .aiBtn {
+    width: 50px;
+    max-width: none;
+  }
+
+  .comingSoon {
+    font-size: 14px;
+    position: relative;
+    top: 0;
   }
 
   .footer {

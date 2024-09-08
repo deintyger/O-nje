@@ -7,7 +7,7 @@ import {
   faWandMagicSparkles,
 } from "@fortawesome/free-solid-svg-icons";
 import Navbar from "./components/Navbar";
-import Footer from "./Footer";
+import Footer from "./components/Footer";
 
 const AddRecipePage = () => {
   const [name, setName] = useState("");

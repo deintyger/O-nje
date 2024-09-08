@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { List, Button, Input } from "antd";
 import Navbar from "./pages/components/Navbar";
-import Footer from "./pages/Footer";
+import Footer from "./pages/components/Footer";
 import "antd/dist/reset.css";
 import { debounce } from "lodash";
 import "./App.css";
