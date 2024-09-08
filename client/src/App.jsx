@@ -55,7 +55,7 @@ function App() {
     return total / ratings.length;
   };
 
-  // English word adjustment for singular/plural handling
+  //English word adjustment for singular/plural handling
   const englishWord = (recipe) => {
     if (recipe.ratings.length === 1) {
       return "Person";

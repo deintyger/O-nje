@@ -56,6 +56,9 @@ body,
   height: 85px;
   width: 85px;
 }
+.logo:hover{
+  cursor: pointer;
+}
 
 /* Search bar */
 .searchBarContainer {
@@ -218,6 +221,36 @@ body,
   border: 2px solid #ffe8e5;
 }
 
+/* Add styles for the parent container */
+.recipeHeader {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  width: 100%; 
+  margin-bottom: 20px;
+  position: relative; 
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  cursor: pointer;
+  font-size: 24px;
+  flex: 0;
+}
+
+.recipeName2 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); 
+  width: fit-content;
+  font-size: 40px;
+  color: #522f15;
+  font-family: "Bad Script", cursive;
+}
+
+
 /* Firefox */
 .addRecipe {
   scrollbar-width: thin;
@@ -286,6 +319,30 @@ button {
   border: none;
   cursor: pointer;
 }
+
+
+.sharenRateRecipe {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10;
+  width: fit-content;
+}
+
+.rateRecipe {
+  flex: 1;
+  margin-right: 50px;
+  width: fit-content;
+}
+
+.shareRecipe {
+  flex: 0;
+  text-align: right;
+  margin-left: 50px;
+  width: fit-content;
+}
+
 
 /*Footer*/
 .footer {
