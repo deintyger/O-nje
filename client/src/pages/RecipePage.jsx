@@ -76,7 +76,11 @@ const RecipePage = () => {
 
   if (!recipe) return <p>Loading...</p>;
 
-  const averageRating = recipe.averageRating || 0;
+   const findAverage = (ratings) => {
+    if (ratings.length === 0) return 0;
+    const total = ratings.reduce((acc, rating) => acc + rating, 0);
+    return total / ratings.length;
+  };
 
   return (
     <div className="content">
@@ -107,7 +111,7 @@ const RecipePage = () => {
             <h3>Cooking Instructions</h3>
             <p>{recipe.steps}</p>
             <h3>Average Rating</h3>
-            <p>{averageRating.toFixed(1)} ⭐️</p>
+            <p>{findAverage(recipe.ratings).toFixed(1)} ⭐️</p>
             <div className="sharenRateRecipe">
               <div className="rateRecipe">
                 <h3>Rate this recipe:</h3>

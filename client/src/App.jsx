@@ -67,6 +67,9 @@ function App() {
     }
   };
 
+
+  if (!recipes) return <p>Loading...</p>;
+
   return (
     <div className="content">
       <Navbar />
