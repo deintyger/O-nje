@@ -74,7 +74,21 @@ const RecipePage = () => {
     }
   };
 
-  if (!recipe) return <p>Loading...</p>;
+  if (!recipe) return (
+    <div className="content">
+      <Navbar />
+      <div className="site-layout-content">
+        <div className="addRecipe">
+          <div className="loader"></div>
+          <p style={{color: "#522f15"}}>Please wait while the recipe loads...</p>
+        </div>
+      </div>
+      <div>
+        <Footer />
+      </div>
+    </div>
+  );
+  
 
    const findAverage = (ratings) => {
     if (ratings.length === 0) return 0;

@@ -14,7 +14,6 @@ connectDB();
 
 const app = express();
 app.use(cors());
-app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 
 // Swagger UI setup
@@ -30,7 +29,7 @@ app.post('/api/generateInstructions', async (req, res) => {
       messages,
     }, {
       headers: {
-        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, // Use your OpenAI API key
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`,
         'Content-Type': 'application/json',
       },
     });

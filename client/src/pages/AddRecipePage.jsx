@@ -39,7 +39,7 @@ const AddRecipePage = () => {
     setError("");
 
     try {
-      const response = await axios.post("/api/generateInstructions", { // Use your backend endpoint
+      const response = await axios.post("/api/generateInstructions", {
         model: "gpt-3.5-turbo",
         messages: [
           {
@@ -52,7 +52,7 @@ const AddRecipePage = () => {
       setSteps(response.data.choices[0].message.content);
     } catch (error) {
       console.error("Error generating cooking instructions:", error);
-      setError("Failed to generate cooking instructions. Please try again."); // Set error message
+      setError("Failed to generate cooking instructions. Please try again.");
     } finally {
       setLoading(false); 
     }

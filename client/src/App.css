@@ -1,12 +1,32 @@
 /* Import Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Alata&family=Bad+Script&family=Lily+Script+One&display=swap");
+
+/*Loader*/
+.loader {
+  border: 4px solid #f3bbb3;
+  border-top: 4px solid #522f15;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 
 /* General reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Alata", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 html,
@@ -48,7 +68,6 @@ body,
 }
 
 .menuItem {
-  font-family: "Lily Script One", cursive !important;
   font-size: 20px;
 }
 
@@ -64,51 +83,23 @@ body,
 .searchBarContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 10px;
   width: 100%;
-  height: 52px;
 }
 
 /* Search bar */
 .searchBar {
-  width: 80%;
+  width: 90%;
   padding: 10px;
   border-radius: 15px;
-  border: 1px solid #ddd;
-  height: 50px;
   text-align: center;
-  color: #522f15;
   font-size: 18px;
   transition: border-color 0.3s ease;
 }
 
-.searchBar::placeholder {
-  color: #ecd6cc;
-  font-family: "Alata", sans-serif;
-}
-
-.searchBar:hover {
-  border-color: #522f15 !important;
-}
 
 .buttons {
   display: flex;
   gap: 50px;
-}
-
-.searchBtn {
-  padding: 10px 40px;
-  border-radius: 15px;
-  height: 50px;
-  background-color: #522f15;
-  color: #fff;
-  font-size: 18px;
-}
-
-.searchBtn:hover {
-  background-color: #522f1586 !important;
-  border: none;
 }
 
 .aiButtonSection {
@@ -121,7 +112,7 @@ body,
 .aiBtn {
   padding: 10px 40px;
   border-radius: 15px;
-  height: 50px;
+  height: fit-content;
   background-color: #ffdbd0;
   color: #522f15;
   font-size: 18px;
@@ -132,18 +123,6 @@ body,
 .aiBtn:hover {
   background-color: #ffdbd04d !important;
   border: none;
-}
-
-.comingSoon {
-  color: #fff;
-  margin-bottom: 5px;
-  background-color: #ff5733;
-  border-radius: 9px;
-  padding: 3px;
-  top: -20px;
-  position: absolute;
-  right: 20px;
-  font-size: small;
 }
 
 /* Content */
@@ -175,7 +154,6 @@ body,
 }
 
 .listContainer {
-  margin-top: 40px;
   justify-content: center;
   align-items: center;
   width: 90%;
@@ -185,17 +163,15 @@ body,
   font-size: 44px;
   font-weight: bold;
   color: #b66139;
-  font-family: "Bad Script", cursive;
 }
 
 .ounje {
   color: #522f15;
-  font-family: "Lily Script One", cursive;
 }
 
 .listItem {
-  width: 100%;
-  height: 140px;
+  width: fit-content;
+  height: fit-content;
   padding: 10px 0;
   margin-top: 20px;
   background-color: #ecd6cc;
@@ -274,14 +250,12 @@ body,
   transform: translateX(-50%);
   font-size: 40px;
   color: #522f15;
-  font-family: "Bad Script", cursive;
   white-space: nowrap;
 }
 
 /* Instructions and other details inside the container */
 .recipeInstructions {
   color: #b66139;
-  font-family: "Alata", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -337,8 +311,6 @@ body,
 .addTitle {
   font-size: 40px;
   color: #522f15;
-  font-family: "Bad Script", cursive;
-  margin-top: 30px;
 }
 
 form {
@@ -432,7 +404,7 @@ button {
     flex-direction: row;
     gap: 5px;
   }
-  .menuItem{
+  .menuItem {
     font-size: 15px;
   }
 
@@ -447,18 +419,27 @@ button {
     margin-top: 50px;
   }
 
-  .titleText{
+  .titleText {
     font-size: 20px;
+    text-align: center;
   }
   .addRecipe {
     width: 90%;
     padding: 10px;
   }
-  .recipeName,  .recipeName2, .ratingBtn, .useBtn {
+  .addTitle {
+    font-size: 20px;
+    color: #522f15;
+    margin-top: auto}
+  
+  .recipeName,
+  .recipeName2,
+  .ratingBtn,
+  .useBtn {
     font-size: 14px !important;
   }
 
-  .listItem{
+  .listItem {
     width: fit-content;
   }
 
@@ -478,7 +459,7 @@ button {
 
   .searchBtn,
   .aiBtn {
-    width: 50px;
+    width: fit-content;
     max-width: none;
     font-size: 14px !important;
   }

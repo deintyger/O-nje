@@ -9,10 +9,8 @@ export default defineConfig({
         target: 'https://ounje-ywkz.onrender.com',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
-        timeout: 5000, 
-        secure: false,
+        secure: true,
       },
     },
-    host: true,
   },
 });
