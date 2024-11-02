@@ -16,17 +16,37 @@ function App() {
     return [...recipes].sort((a, b) => findAverage(b.ratings) - findAverage(a.ratings));
   }, []); 
 
-  useEffect(() => {
-    axios
-      .get("/api/recipes")
-      .then((response) => {
-        console.log(response);
-        const sortedRecipes = sortRecipesByRating(response.data);
-        setRecipes(sortedRecipes);
-        setFilteredRecipes(sortedRecipes);
-      })
-      .catch((error) => console.error("Error fetching recipes:", error));
-  }, [sortRecipesByRating]); 
+  // Directly fetch from the full URL
+useEffect(() => {
+  axios
+    .get("https://ounje-ywkz.onrender.com/api/recipes")
+    .then((response) => {
+      console.log("API Response:", response);
+      const sortedRecipes = sortRecipesByRating(response.data);
+      setRecipes(sortedRecipes);
+      setFilteredRecipes(sortedRecipes);
+    })
+    .catch((error) => console.error("Error fetching recipes:", error));
+}, [sortRecipesByRating]);
+
+
+  // useEffect(() => {
+   // axios
+    //  .get("/api/recipes")
+    //  .then((response) => {
+     //   console.log("API Response:", response);
+     //   const sortedRecipes = sortRecipesByRating(response.data);
+      //  setRecipes(sortedRecipes);
+      //  setFilteredRecipes(sortedRecipes);
+     // })
+    //  .catch((error) => {
+     //   console.error("Error fetching recipes:", error);
+    //    if (error.response) {
+    //      console.error("Error response data:", error.response.data);
+    //      console.error("Error response status:", error.response.status);
+    //    }
+    //  });
+ // }, [sortRecipesByRating]);
   
 
   // Handle search input, debounced to prevent excessive API calls
@@ -42,21 +62,21 @@ function App() {
   }, 300);
 
     
-  // Format date
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const options = { year: "numeric", month: "long", day: "numeric" };
     return date.toLocaleDateString(undefined, options).replace(",", "");
   };
 
-  // Average ratings:
+
   const findAverage = (ratings) => {
     if (ratings.length === 0) return 0;
     const total = ratings.reduce((acc, rating) => acc + rating, 0);
     return total / ratings.length;
   };
 
-  //English word adjustment for singular/plural handling
+
   const englishWord = (recipe) => {
     if (recipe.ratings.length === 1) {
       return "Person";
@@ -85,9 +105,6 @@ function App() {
               onChange={(e) => handleSearch(e.target.value)}
               className="searchBar"
             />
-            <Button type="primary" className="searchBtn" onClick={handleSearch}>
-              Search
-            </Button>
           </div>
           <div className="listContainer">
             <List

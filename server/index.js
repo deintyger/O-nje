@@ -5,7 +5,7 @@ const recipeRoutes = require('./routes/recipeRoutes');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocs = require('./config/swagger');
 const connectDB = require('./config/db');
-const axios = require('axios'); // <-- Add this line to import axios
+const axios = require('axios');
 
 dotenv.config();
 
@@ -14,6 +14,7 @@ connectDB();
 
 const app = express();
 app.use(cors());
+app.use(cors({ origin: 'http://localhost:5173' }));
 app.use(express.json());
 
 // Swagger UI setup
