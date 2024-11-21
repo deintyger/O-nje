@@ -1,12 +1,12 @@
-const Recipe = require('../models/recipeModel');
+const Recipe = require("../models/recipeModel");
 
 // Get all recipes
 exports.getAllRecipes = async (req, res) => {
   try {
-    const recipes = await Recipe.find().sort({ createdAt: -1 });
+    const recipes = await Recipe.find().exec();
     res.json(recipes);
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: "Error fetching recipes" });
   }
 };
 
@@ -18,12 +18,12 @@ exports.addRecipe = async (req, res) => {
       name,
       ingredients,
       steps,
-      image
+      image,
     });
     await newRecipe.save();
     res.json(newRecipe);
   } catch (error) {
-    res.status(400).json({ message: 'Error adding recipe' });
+    res.status(400).json({ message: "Error adding recipe" });
   }
 };
 
@@ -31,10 +31,10 @@ exports.addRecipe = async (req, res) => {
 exports.getRecipeById = async (req, res) => {
   try {
     const recipe = await Recipe.findById(req.params.id);
-    if (!recipe) return res.status(404).json({ message: 'Recipe not found' });
+    if (!recipe) return res.status(404).json({ message: "Recipe not found" });
     res.json(recipe);
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -43,13 +43,13 @@ exports.rateRecipe = async (req, res) => {
   try {
     const { rating } = req.body;
     const recipe = await Recipe.findById(req.params.id);
-    if (!recipe) return res.status(404).json({ message: 'Recipe not found' });
+    if (!recipe) return res.status(404).json({ message: "Recipe not found" });
 
     recipe.ratings.push(rating);
     await recipe.save();
 
     res.json({ averageRating: recipe.averageRating });
   } catch (error) {
-    res.status(400).json({ message: 'Error rating recipe' });
+    res.status(400).json({ message: "Error rating recipe" });
   }
 };
